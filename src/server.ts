@@ -9,6 +9,8 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.set('trust proxy', 1); // Trust first proxy for rate limiting
+
 // Rate Limiting Middleware
 const limiter = rateLimit({
   windowMs: 60 * 1000, // 1 minute
